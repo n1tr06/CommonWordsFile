@@ -19,7 +19,11 @@ for i in range(len(words)):
     else:
         words_dict[words[i]] = 1
 
-for i in range(int(sys.argv[1])):
+n = int(sys.argv[1])
+if n > len(words):
+    n = len(words)
+
+for i in range(n):
     max_key = max(words_dict, key=lambda k: words_dict[k])
     print(f"{(i+1)}. {max_key} {words_dict[max_key]} times")
     words_dict[max_key] = 0
